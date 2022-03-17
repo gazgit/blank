@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="TestPlan" duration-ms="33889" started-at="2022-03-17T06:16:15 GMT" finished-at="2022-03-17T06:16:49 GMT">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="33889" started-at="2022-03-17T06:16:15 GMT" finished-at="2022-03-17T06:16:49 GMT">
+      <class name="TestPlan">
+        <test-method status="PASS" signature="navigateToMonitors()[pri:0, instance:TestPlan@1b66c0fb]" name="navigateToMonitors" duration-ms="8097" started-at="2022-03-17T06:16:15 GMT" finished-at="2022-03-17T06:16:23 GMT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToMonitors -->
+        <test-method status="PASS" signature="userPurchasesNexus()[pri:0, instance:TestPlan@1b66c0fb]" name="userPurchasesNexus" duration-ms="11187" started-at="2022-03-17T06:16:23 GMT" finished-at="2022-03-17T06:16:34 GMT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userPurchasesNexus -->
+        <test-method status="PASS" signature="userSingUp()[pri:0, instance:TestPlan@1b66c0fb]" name="userSingUp" duration-ms="14496" started-at="2022-03-17T06:16:34 GMT" finished-at="2022-03-17T06:16:49 GMT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userSingUp -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:TestPlan@1b66c0fb]" name="cleanUp" is-config="true" duration-ms="322" started-at="2022-03-17T06:16:49 GMT" finished-at="2022-03-17T06:16:49 GMT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- TestPlan -->
+    </test> <!-- Command line test -->
+  </suite> <!-- TestPlan -->
+</testng-results>

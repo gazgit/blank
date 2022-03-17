@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 public class WebPage extends PageObject {
 
     private final String PURCHASE_NAME = "John";
-    private final String USERNAME = "JohnC";
+    private final String USERNAME = "JohnE";
     private final String PASSWORD = "password";
     private final String COUNTRY = "Wales";
     private final String CITY = "Cardiff";
