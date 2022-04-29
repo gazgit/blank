@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="TestPlan" duration-ms="33889" started-at="2022-03-17T06:16:15 GMT" finished-at="2022-03-17T06:16:49 GMT">
+  <suite name="TestPlan" duration-ms="31531" started-at="2022-04-27T09:09:49 BST" finished-at="2022-04-27T09:10:20 BST">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="33889" started-at="2022-03-17T06:16:15 GMT" finished-at="2022-03-17T06:16:49 GMT">
+    <test name="Command line test" duration-ms="31531" started-at="2022-04-27T09:09:49 BST" finished-at="2022-04-27T09:10:20 BST">
       <class name="TestPlan">
-        <test-method status="PASS" signature="navigateToMonitors()[pri:0, instance:TestPlan@1b66c0fb]" name="navigateToMonitors" duration-ms="8097" started-at="2022-03-17T06:16:15 GMT" finished-at="2022-03-17T06:16:23 GMT">
+        <test-method status="PASS" signature="testAinvalidRegisterDetails()[pri:0, instance:TestPlan@1b66c0fb]" name="testAinvalidRegisterDetails" duration-ms="8347" started-at="2022-04-27T09:09:49 BST" finished-at="2022-04-27T09:09:57 BST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- navigateToMonitors -->
-        <test-method status="PASS" signature="userPurchasesNexus()[pri:0, instance:TestPlan@1b66c0fb]" name="userPurchasesNexus" duration-ms="11187" started-at="2022-03-17T06:16:23 GMT" finished-at="2022-03-17T06:16:34 GMT">
+        </test-method> <!-- testAinvalidRegisterDetails -->
+        <test-method status="PASS" signature="testBuserSignUp()[pri:0, instance:TestPlan@1b66c0fb]" name="testBuserSignUp" duration-ms="7584" started-at="2022-04-27T09:09:57 BST" finished-at="2022-04-27T09:10:05 BST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- userPurchasesNexus -->
-        <test-method status="PASS" signature="userSingUp()[pri:0, instance:TestPlan@1b66c0fb]" name="userSingUp" duration-ms="14496" started-at="2022-03-17T06:16:34 GMT" finished-at="2022-03-17T06:16:49 GMT">
+        </test-method> <!-- testBuserSignUp -->
+        <test-method status="PASS" signature="testCnewSavingsAccount()[pri:0, instance:TestPlan@1b66c0fb]" name="testCnewSavingsAccount" duration-ms="8756" started-at="2022-04-27T09:10:05 BST" finished-at="2022-04-27T09:10:14 BST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- userSingUp -->
-        <test-method status="PASS" signature="cleanUp()[pri:0, instance:TestPlan@1b66c0fb]" name="cleanUp" is-config="true" duration-ms="322" started-at="2022-03-17T06:16:49 GMT" finished-at="2022-03-17T06:16:49 GMT">
+        </test-method> <!-- testCnewSavingsAccount -->
+        <test-method status="PASS" signature="testDfundsTransfer()[pri:0, instance:TestPlan@1b66c0fb]" name="testDfundsTransfer" duration-ms="4459" started-at="2022-04-27T09:10:14 BST" finished-at="2022-04-27T09:10:18 BST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDfundsTransfer -->
+        <test-method status="PASS" signature="testEforgotLoginInfo()[pri:0, instance:TestPlan@1b66c0fb]" name="testEforgotLoginInfo" duration-ms="2328" started-at="2022-04-27T09:10:18 BST" finished-at="2022-04-27T09:10:20 BST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEforgotLoginInfo -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:TestPlan@1b66c0fb]" name="cleanUp" is-config="true" duration-ms="202" started-at="2022-04-27T09:10:20 BST" finished-at="2022-04-27T09:10:21 BST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->

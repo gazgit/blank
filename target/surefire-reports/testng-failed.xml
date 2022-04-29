@@ -5,7 +5,7 @@
     <classes>
       <class name="TestPlan">
         <methods>
-          <include name="userSingUp"/>
+          <include name="testBuserSignUp"/>
           <include name="cleanUp"/>
         </methods>
       </class> <!-- TestPlan -->

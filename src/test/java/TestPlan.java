@@ -19,78 +19,141 @@ public class TestPlan {
         System.setProperty("webdriver.chrome.driver", Utils.CHROME_DRIVER_LOCATION);
     }
 
-    @Test(testName = "User can navigate to monitors section")
-    public static void navigateToMonitors() throws InterruptedException {
+    @Test(testName = "Relevant error messages fire when mandatory registration fields are left blank.")
+    public static void testAinvalidRegisterDetails() throws InterruptedException {
         driver.get(Utils.BASE_URL);
         driver.manage().window().maximize();
         WebPage webPage = new WebPage(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"itemc\"]")));
-        webPage.selectMonitorMenu();
-        Thread.sleep(5000);
-        webPage.monitorsPage();
-        System.out.println("User has navigated to the Monitor Section");
+        // User tries to register an account when all mandatory fields have been left blank.
+        webPage.registerLink();
+        webPage.hitRegisterButton();
+        webPage.firstNameErrorMessage();
+        webPage.lastNameErrorMessage();
+        webPage.addressErrorMessage();
+        webPage.cityErrorMessage();
+        webPage.stateErrorMessage();
+        webPage.zipcodeErrorMessage();
+        webPage.socialSecurityErrorMessage();
+        webPage.usernameErrorMessage();
+        webPage.passwordErrorMessage();
+        webPage.passwordConfirmationErrorMessage();
+        System.out.println("Validation errors have fired for any mandatory registration fields left blank");
     }
 
-    //Please change the USERNAME on the WebPage to a new unused name before running this test.
-    @Test(testName = "User signs up and logs in and is shown as being logged in")
-    public static void userSingUp() throws InterruptedException {
+    @Test(testName = "User successfully registers as a new user")
+    public static void testBuserSignUp() throws InterruptedException {
         driver.get(Utils.BASE_URL);
         driver.manage().window().maximize();
         WebPage webPage = new WebPage(driver);
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("signin2")));
-        webPage.selectSignUpLink();
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("sign-username")));
-        webPage.enterSignUpUsername();
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("sign-password")));
-        webPage.enterSignUpPassword();
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"signInModal\"]/div/div/div[3]/button[2]")));
-        webPage.pressSignUpButton();
-        //waits for the sign up successful popup and then accepts it.
-        Thread.sleep(5000);
-        driver.switchTo().alert().accept();
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("login2")));
-        webPage.selectLogInLink();
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("loginusername")));
-        webPage.enterLogInUsername();
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("loginpassword")));
-        webPage.enterLogInPassword();
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"logInModal\"]/div/div/div[3]/button[2]")));
-        webPage.pressLoginButton();
-        webPage.displayUser();
-        Thread.sleep(5000);
-        System.out.println("User has signed up and is now logged in");
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"loginPanel\"]/p[2]/a")));
+        // User registers an account with valid data in all fields.
+        webPage.registerLink();
+        webPage.enterCustomerFirstName();
+        webPage.enterCustomerLastName();
+        webPage.enterCustomerAddress();
+        webPage.enterCustomerCity();
+        webPage.enterCustomerState();
+        webPage.enterCustomerZipcode();
+        webPage.enterCustomerPhoneNumber();
+        webPage.enterCustomerSocialSecurityNumber();
+        webPage.enterRegisterCustomerUsername();
+        webPage.enterCustomerPassword();
+        webPage.confirmPassword();
+        webPage.hitRegisterButton();
+        webPage.successMessage();
+        Thread.sleep(2000);
+        webPage.userLogsOut();
+        System.out.println("User has successfully registered a new account");
     }
 
-    @Test(testName = "User can purchase a nexus 6 mobile phone ")
-    public static void userPurchasesNexus() throws InterruptedException {
+    @Test(testName = "User logs in, opens a new savings account and transfers $100 from the main account.")
+    public static void testCnewSavingsAccount() throws InterruptedException {
         driver.get(Utils.BASE_URL);
         driver.manage().window().maximize();
         WebPage webPage = new WebPage(driver);
-        //Waits until the element is clickable before attempting to click on it
+        // Waits until the element is clickable before attempting to click on it
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"tbodyid\"]/div[3]/div/div/h4/a")));
-        webPage.selectNexusPhone();
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"tbodyid\"]/div[2]/div/a")));
-        webPage.pressAddToCart();
-        //Waits for the product added pop up to appear and then accepts it.
-        Thread.sleep(5000);
-        driver.switchTo().alert().accept();
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"navbarExample\"]/ul/li[4]/a")));
-        webPage.showCart();
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"page-wrapper\"]/div/div[2]/button")));
-        webPage.pressPlaceOrder();
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("name")));
-        webPage.addName();
-        webPage.addCountry();
-        webPage.addCity();
-        webPage.addCreditCard();
-        webPage.addMonth();
-        webPage.addYear();
-        webPage.pressPurchaseButton();
-        webPage.purchaseMessage();
-        System.out.println("User has successfully purchased a Nexus 6 mobile phone");
+        // User logs in with valid login details.
+        webPage.enterLoginCustomerUsername();
+        webPage.enterLoginCustomerPassword();
+        webPage.hitLoginButton();
+        // User creates a new SAVINGS account.
+        webPage.openNewAccount();
+        webPage.selectSavingsAccount();
+        Thread.sleep(2000);
+        webPage.openSavingsAccount();
+        Thread.sleep(2000);
+        webPage.accountOpenedMessage();
+        // User opens the newly opened savings account to view transactions.
+        webPage.selectNewAccountLink();
+        // Balance is shown as $100.
+        webPage.accountBalanceSummary();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"transactionTable\"]"
+                + "/tbody/tr/td[2]/a")));
+        webPage.clickFundsTransferReceivedLink();
+        webPage.transactionDetailsSummary();
+        //User opens their accounts overview.
+        webPage.clickAccountsOverviewLink();
+        Thread.sleep(2000);
+        // User opens the CHECKING account overview page.
+        webPage.clickCheckingAccountOverviewLink();
+        Thread.sleep(2000);
+        // User opens the funds transfer link.
+        webPage.clickFundsTransferSentLink();
+        Thread.sleep(2000);
+        // Transaction shows $100 has been debited from the account.
+        webPage.confirmDebitTransaction();
+        Thread.sleep(2000);
+        webPage.userLogsOut();
+        System.out.println("User has successfully opened a new savings account and a balance of $100 has been transferred");
+    }
+
+    @Test(testName = "Transfer funds function")
+    public static void testDfundsTransfer() throws InterruptedException {
+        driver.get(Utils.BASE_URL);
+        driver.manage().window().maximize();
+        WebPage webPage = new WebPage(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        // User logs in with valid login details.
+        webPage.enterLoginCustomerUsername();
+        webPage.enterLoginCustomerPassword();
+        webPage.hitLoginButton();
+        // User opens the Funds Transfer link.
+        webPage.clickFundsTransferLink();
+        // User selects the CHECKING account.
+        Thread.sleep(1000);
+        webPage.selectFirstAccount();
+        // User selects SAVINGS account.
+        webPage.selectSecondAccount();
+        // User adds a transfer amount to the transaction.
+        webPage.enterTransferAmount();
+        webPage.hitTransferButton();
+        // Transfer is completed.
+        webPage.transferMessage();
+        webPage.userLogsOut();
+        System.out.println("User has successfully transferred funds between two accounts");
+    }
+
+    @Test(testName = "Retrieve user details using the Forgot Login Info link")
+    public static void testEforgotLoginInfo() throws InterruptedException {
+        driver.get(Utils.BASE_URL);
+        driver.manage().window().maximize();
+        WebPage webPage = new WebPage(driver);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"loginPanel\"]/p[2]/a")));
+        // User retrieves login details by entering the name and address of a user.
+        webPage.forgotLoginLink();
+        webPage.enterCustomerLookupFirstName();
+        webPage.enterCustomerLookupLastName();
+        webPage.enterCustomerLookupAddress();
+        webPage.enterCustomerLookupCity();
+        webPage.enterCustomerLookupState();
+        webPage.enterCustomerLookupZipcode();
+        webPage.enterCustomerLookupSocialSecurityNumber();
+        webPage.hitFindMyLoginInfoButton();
+        webPage.customerLookupSuccessMessage();
+        System.out.println("User has successfully retrieved their login details and is now logged in");
     }
 
     @AfterSuite

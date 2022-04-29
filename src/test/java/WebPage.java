@@ -4,179 +4,424 @@ import org.openqa.selenium.support.FindBy;
 
 public class WebPage extends PageObject {
 
-    private final String PURCHASE_NAME = "John";
-    private final String USERNAME = "JohnE";
+    private final String FIRST_NAME = "axel";
+    private final String LAST_NAME = "Jones";
+    private final String ADDRESS = "1 High Street";
+    private final String USERNAME = "axelJ";
     private final String PASSWORD = "password";
-    private final String COUNTRY = "Wales";
+    private final String STATE = "Wales";
     private final String CITY = "Cardiff";
-    private final String CARD = "Visa";
-    private final String MONTH = "June";
-    private final String YEAR = "2026";
+    private final String ZIPCODE = "CF14 3UZ";
+    private final String PHONE_NUMBER = "01234 5678900";
+    private final String SSN = "01234";
 
-    @FindBy(xpath = "/html/body/div[5]/div/div[1]/div/a[4]")
-    private WebElement monitorMenu;
+    @FindBy(xpath = "//*[@id=\"loginPanel\"]/p[1]/a")
+    private WebElement forgotLoginLink;
 
-    @FindBy(xpath = "/html/body/div[5]/div/div[2]/div/div[1]/div/a/img")
-    private WebElement monitorsPage;
+    @FindBy(xpath = "//*[@id=\"loginPanel\"]/p[2]/a")
+    private WebElement registerLink;
 
-    @FindBy(xpath = "/html/body/div[5]/div/div[2]/div/div[3]/div/div/h4/a")
-    private WebElement nexusPhone;
+    @FindBy(id = "customer.firstName")
+    private WebElement customerFirstName;
 
-    @FindBy(xpath = "/html/body/div[5]/div/div[2]/div[2]/div/a")
-    private WebElement addToCartButton;
+    @FindBy(id = "firstName")
+    private WebElement customerLookupFirstName;
 
-    @FindBy(xpath = "/html/body/nav/div/div/ul/li[4]/a")
-    private WebElement showCart;
+    @FindBy(id = "customer.lastName")
+    private WebElement customerLastName;
 
-    @FindBy(xpath = "/html/body/div[6]/div/div[2]/button")
-    private WebElement placeOrderButton;
+    @FindBy(id = "lastName")
+    private WebElement customerLookupLastName;
 
-    @FindBy(id = "login2")
-    private WebElement logInLink;
+    @FindBy(id = "customer.address.street")
+    private WebElement customerAddress;
 
-    @FindBy(id = "signin2")
-    private WebElement signUpLink;
+    @FindBy(id = "address.street")
+    private WebElement customerLookupAddress;
 
-    @FindBy(id = "sign-username")
-    private WebElement signUpUsername;
+    @FindBy(id = "customer.address.city")
+    private WebElement customerCity;
 
-    @FindBy(id = "sign-password")
-    private WebElement signUpPassword;
+    @FindBy(id = "address.city")
+    private WebElement customerLookupCity;
 
-    @FindBy(id = "loginusername")
-    private WebElement loginusername;
+    @FindBy(id = "customer.address.state")
+    private WebElement customerState;
 
-    @FindBy(id = "loginpassword")
-    private WebElement loginpassword;
+    @FindBy(id = "address.state")
+    private WebElement customerLookupState;
 
-    @FindBy(xpath = "//*[@id=\"logInModal\"]/div/div/div[3]/button[2]")
+    @FindBy(id = "customer.address.zipCode")
+    private WebElement customerZipcode;
+
+    @FindBy(id = "address.zipCode")
+    private WebElement customerLookupZipcode;
+
+    @FindBy(id = "customer.phoneNumber")
+    private WebElement customerPhonenumber;
+
+    @FindBy(id = "customer.ssn")
+    private WebElement customerSocialSecurityNumber;
+
+    @FindBy(id = "ssn")
+    private WebElement customerLookupSocialSecurityNumber;
+
+    @FindBy(id = "customer.username")
+    private WebElement registerCustomerUsername;
+
+    @FindBy(id = "customer.password")
+    private WebElement customerPassword;
+
+    @FindBy(id = "repeatedPassword")
+    private WebElement confirmPassword;
+
+    @FindBy(xpath = "//*[@id=\"customerForm\"]/table/tbody/tr[13]/td[2]/input")
+    private WebElement registerButton;
+
+    @FindBy(xpath = "//*[@id=\"lookupForm\"]/table/tbody/tr[8]/td[2]/input")
+    private WebElement loginInfoButton;
+
+    @FindBy(xpath = "//*[@id=\"loginPanel\"]/form/div[3]/input")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//*[@id=\"signInModal\"]/div/div/div[3]/button[2]")
-    private WebElement signUpButton;
+    @FindBy(xpath = "//*[@id=\"loginPanel\"]/form/div[1]/input")
+    private WebElement loginCustomerUsername;
 
-    @FindBy(id = "name")
-    private WebElement purchaseName;
+    @FindBy(xpath = "//*[@id=\"loginPanel\"]/form/div[2]/input")
+    private WebElement loginCustomerPassword;
 
-    @FindBy(id = "country")
-    private WebElement country;
+    @FindBy(xpath = "//*[@id=\"leftPanel\"]/ul/li[1]/a")
+    private WebElement newAccountLink;
 
-    @FindBy(id = "city")
-    private WebElement city;
+    @FindBy(xpath = "//*[@id=\"leftPanel\"]/ul/li[3]/a")
+    private WebElement fundsTransferLink;
 
-    @FindBy(id = "card")
-    private WebElement card;
+    @FindBy(xpath = "//*[@id=\"toAccountId\"]/option[1]")
+    private WebElement selectAccountOne;
 
-    @FindBy(id = "month")
-    private WebElement month;
+    @FindBy(xpath = "//*[@id=\"toAccountId\"]/option[2]")
+    private WebElement selectAccountTwo;
 
-    @FindBy(id = "year")
-    private WebElement year;
+    @FindBy(id = "amount")
+    private WebElement transferAmount;
 
-    @FindBy(xpath = "/html/body/div[3]/div/div/div[3]/button[2]")
-    private WebElement purchaseButton;
+    @FindBy(xpath = "//*[@id=\"rightPanel\"]/div/div/form/div[2]/input")
+    private WebElement transferButton;
 
-    @FindBy(xpath = "/html/body/div[10]/h2")
-    private WebElement purchase;
+    @FindBy(xpath = "//*[@id=\"rightPanel\"]/div/div/h1")
+    private WebElement transferMessage;
 
-    @FindBy(xpath = "//*[@id=\"nameofuser\"]")
-    private WebElement nameOfUser;
+    @FindBy(id = "toAccountId")
+    private WebElement toAccount;
+
+    @FindBy(id = "type")
+    private WebElement accountSelection;
+
+    @FindBy(xpath = "//*[@id=\"rightPanel\"]/div/div/form/div/input")
+    private WebElement newAccountButton;
+
+    @FindBy(id = "newAccountId")
+    private WebElement newAccountNumberLink;
+
+    @FindBy(xpath = "//*[@id=\"leftPanel\"]/ul/li[2]/a")
+    private WebElement accountOverviewButton;
+
+    @FindBy(xpath = "//*[@id=\"transactionTable\"]/tbody/tr/td[2]/a")
+    private WebElement fundsTransferReceivedLink;
+
+    @FindBy(xpath = "//*[@id=\"leftPanel\"]/ul/li[2]/a")
+    private WebElement accountsOverviewLink;
+
+    @FindBy(xpath = "//*[@id=\"accountTable\"]/tbody/tr[1]/td[1]/a")
+    private WebElement checkingAccountOverviewLink;
+
+    @FindBy(xpath = "//*[@id=\"transactionTable\"]/tbody/tr/td[2]/a")
+    private WebElement fundsTransferSentLink;
+
+    @FindBy(xpath = "//*[@id=\"rightPanel\"]/table/tbody/tr[4]/td[2]")
+    private WebElement debitTransaction;
+
+    @FindBy(xpath = "//*[@id=\"rightPanel\"]/div/div/p[2]/b")
+    private WebElement newAccountMessage;
+
+    @FindBy(xpath = "//*[@id=\"rightPanel\"]/p")
+    private WebElement successMessage;
+
+    @FindBy(xpath = "//*[@id=\"rightPanel\"]/p[1]")
+    private WebElement customerLookupSuccessMessage;
+
+    @FindBy(id="customer.firstName.errors")
+    private WebElement firstNameErrorMessage;
+
+    @FindBy(id="customer.lastName.errors")
+    private WebElement lastNameErrorMessage;
+
+    @FindBy(id="customer.address.street.errors")
+    private WebElement addressErrorMessage;
+
+    @FindBy(id="customer.address.city.errors")
+    private WebElement cityErrorMessage;
+
+    @FindBy(id="customer.address.state.errors")
+    private WebElement stateErrorMessage;
+
+    @FindBy(id="customer.address.zipCode.errors")
+    private WebElement zipcodeErrorMessage;
+
+    @FindBy(id="customer.ssn.errors")
+    private WebElement socialSecurityErrorMessage;
+
+    @FindBy(id="customer.username.errors")
+    private WebElement usernameErrorMessage;
+
+    @FindBy(id="customer.password.errors")
+    private WebElement passwordErrorMessage;
+
+    @FindBy(id="repeatedPassword.errors")
+    private WebElement passwordConfirmationErrorMessage;
+
+    @FindBy(xpath="//*[@id=\"balance\"]")
+    private WebElement balanceSummary;
+
+    @FindBy(xpath="//*[@id=\"rightPanel\"]/table/tbody/tr[5]/td[2]")
+    private WebElement transactionSummary;
+
+    @FindBy(xpath="//*[@id=\"leftPanel\"]/ul/li[8]/a")
+    private WebElement logOutButton;
 
     public WebPage(WebDriver driver) {
         super(driver);
     }
 
-    public void selectSignUpLink() {
-        this.signUpLink.click();
+    public void forgotLoginLink(){
+        this.forgotLoginLink.click();
     }
 
-    public void enterSignUpUsername() {
-        this.signUpUsername.sendKeys(USERNAME);
+    public void registerLink() {
+        this.registerLink.click();
     }
 
-    public void enterSignUpPassword() {
-        this.signUpPassword.sendKeys(PASSWORD);
+    public void enterCustomerFirstName() {
+        this.customerFirstName.sendKeys(FIRST_NAME);
     }
 
-    public void enterLogInUsername() {
-        this.loginusername.sendKeys(USERNAME);
+    public void enterCustomerLookupFirstName() {
+        this.customerLookupFirstName.sendKeys(FIRST_NAME);
     }
 
-    public void enterLogInPassword() {
-        this.loginpassword.sendKeys(PASSWORD);
+    public void enterCustomerLastName() {
+        this.customerLastName.sendKeys(LAST_NAME);
     }
 
-    public void pressSignUpButton() {
-        this.signUpButton.click();
+    public void enterCustomerLookupLastName() {
+        this.customerLookupLastName.sendKeys(LAST_NAME);
     }
 
-    public void selectLogInLink() {
-        this.logInLink.click();
+    public void enterCustomerAddress() {
+        this.customerAddress.sendKeys(ADDRESS);
     }
 
-    public void pressLoginButton() {
+    public void enterCustomerLookupAddress() {
+        this.customerLookupAddress.sendKeys(ADDRESS);
+    }
+
+    public void enterCustomerCity() {
+        this.customerCity.sendKeys(CITY);
+    }
+
+    public void enterCustomerLookupCity() {
+        this.customerLookupCity.sendKeys(CITY);
+    }
+
+    public void enterCustomerState() {
+        this.customerState.sendKeys(STATE);
+    }
+
+    public void enterCustomerLookupState() {
+        this.customerLookupState.sendKeys(STATE);
+    }
+
+    public void enterCustomerZipcode() {
+        this.customerZipcode.sendKeys(ZIPCODE);
+    }
+
+    public void enterCustomerLookupZipcode() {
+        this.customerLookupZipcode.sendKeys(ZIPCODE);
+    }
+
+    public void enterCustomerPhoneNumber() {
+        this.customerPhonenumber.sendKeys(PHONE_NUMBER);
+    }
+
+    public void enterCustomerSocialSecurityNumber() {
+        this.customerSocialSecurityNumber.sendKeys(SSN);
+    }
+
+    public void enterCustomerLookupSocialSecurityNumber() {
+        this.customerLookupSocialSecurityNumber.sendKeys(SSN);
+    }
+
+    public void enterRegisterCustomerUsername() {
+        this.registerCustomerUsername.sendKeys(USERNAME);
+    }
+
+    public void enterCustomerPassword() {
+        this.customerPassword.sendKeys(PASSWORD);
+    }
+
+    public void confirmPassword() {
+        this.confirmPassword.sendKeys(PASSWORD);
+    }
+
+    public void hitRegisterButton() {
+        this.registerButton.click();
+    }
+
+    public void hitFindMyLoginInfoButton() {
+        this.loginInfoButton.click();
+    }
+
+    public void hitLoginButton() {
         this.loginButton.click();
     }
 
-    public void selectMonitorMenu() {
-        this.monitorMenu.click();
+    public void openNewAccount() {
+        this.newAccountLink.click();
     }
 
-    public boolean monitorsPage() {
-        return monitorsPage.getText().equalsIgnoreCase("Apple monitor 24");
+    public void clickFundsTransferLink() {
+        this.fundsTransferLink.click();
     }
 
-    public void selectNexusPhone() {
-        this.nexusPhone.click();
+    public void selectFirstAccount() {
+        this.selectAccountOne.click();
     }
 
-    public void pressAddToCart() {
-        this.addToCartButton.click();
+    public void selectSecondAccount() {
+        this.selectAccountTwo.click();
     }
 
-    public void showCart() {
-        this.showCart.click();
+    public void enterTransferAmount() {
+        this.transferAmount.sendKeys("10");
     }
 
-    public void pressPlaceOrder() {
-        this.placeOrderButton.click();
+    public void hitTransferButton() {
+        this.transferButton.click();
     }
 
-    public void addName() {
-        this.purchaseName.sendKeys(PURCHASE_NAME);
+    public void transferMessage() {
+        this.transferMessage.getText().equalsIgnoreCase("Transfer Complete!");
     }
 
-    public void addCountry() {
-        this.country.sendKeys(COUNTRY);
+    public void selectSavingsAccount() {
+        this.accountSelection.sendKeys("SAVINGS");
     }
 
-    public void addCity() {
-        this.city.sendKeys(CITY);
+    public void openSavingsAccount() {
+        this.newAccountButton.click();
     }
 
-    public void addCreditCard() {
-        this.card.sendKeys(CARD);
+    public void selectNewAccountLink() {
+        this.newAccountNumberLink.click();
     }
 
-    public void addMonth() {
-        this.month.sendKeys(MONTH);
+    public void hitAccountOverviewButton() {
+        this.accountOverviewButton.click();
     }
 
-    public void addYear() {
-        this.year.sendKeys(YEAR);
+    public void clickFundsTransferReceivedLink() {
+        this.fundsTransferReceivedLink.click();
     }
 
-    public void pressPurchaseButton() {
-        this.purchaseButton.click();
+    public void clickAccountsOverviewLink() {
+        this.accountsOverviewLink.click();
     }
 
-    public boolean purchaseMessage() {
-        return purchase.getText().equalsIgnoreCase("Thank You For Your Purchase!");
+    public void clickCheckingAccountOverviewLink() {
+        this.checkingAccountOverviewLink.click();
     }
 
-    public String displayUser() {
-        return nameOfUser.getText();
+    public void clickFundsTransferSentLink() {
+        this.fundsTransferSentLink.click();
+    }
+
+    public boolean confirmDebitTransaction() {
+        return debitTransaction.getText().equalsIgnoreCase("Debit");
+    }
+
+    public boolean accountBalanceSummary() {
+        return balanceSummary.getText().equalsIgnoreCase("$100");
+    }
+
+    public boolean transactionDetailsSummary() {
+        return transactionSummary.getText().equalsIgnoreCase("$100");
+    }
+
+    public boolean successMessage() {
+        return successMessage.getText().equalsIgnoreCase("Your account was created successfully. "
+                + "You are now logged in.");
+    }
+
+    public boolean customerLookupSuccessMessage() {
+        return customerLookupSuccessMessage.getText().equalsIgnoreCase("Your login information "
+                + "was located successfully. You are now logged in.");
+    }
+
+    public boolean accountOpenedMessage() {
+        return newAccountMessage.getText().equalsIgnoreCase("Congratulations, your account is now open."
+                + "You are now logged in.");
+    }
+
+    public boolean firstNameErrorMessage() {
+        return firstNameErrorMessage.getText().equalsIgnoreCase("First name is required.");
+    }
+
+    public boolean lastNameErrorMessage() {
+        return lastNameErrorMessage.getText().equalsIgnoreCase("Last name is required.");
+    }
+
+    public boolean addressErrorMessage() {
+        return addressErrorMessage.getText().equalsIgnoreCase("Address is required.");
+    }
+
+    public boolean cityErrorMessage() {
+        return cityErrorMessage.getText().equalsIgnoreCase("City is required.");
+    }
+
+    public boolean stateErrorMessage() {
+        return stateErrorMessage.getText().equalsIgnoreCase("State is required.");
+    }
+
+    public boolean zipcodeErrorMessage() {
+        return zipcodeErrorMessage.getText().equalsIgnoreCase("Zipcode is required.");
+    }
+
+    public boolean socialSecurityErrorMessage() {
+        return socialSecurityErrorMessage.getText().equalsIgnoreCase("Social Security Number is required.");
+    }
+
+    public boolean usernameErrorMessage() {
+        return usernameErrorMessage.getText().equalsIgnoreCase("Username is required.");
+    }
+
+    public boolean passwordErrorMessage() {
+        return passwordErrorMessage.getText().equalsIgnoreCase("Password is required.");
+    }
+
+    public boolean passwordConfirmationErrorMessage() {
+        return passwordConfirmationErrorMessage.getText().equalsIgnoreCase("Password confirmation is required.");
+    }
+
+    public void enterLoginCustomerUsername() {
+        this.loginCustomerUsername.sendKeys(USERNAME);
+    }
+
+    public void enterLoginCustomerPassword() {
+        this.loginCustomerPassword.sendKeys(PASSWORD);
+    }
+
+    public void userLogsOut() {
+        this.logOutButton.click();
     }
 
 }
-
