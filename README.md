@@ -15,6 +15,8 @@ Test 5 - User can retrieve their login credentials by completing the Forgot logi
 
 Running the tests.
 
+The tests can be run independent of any company vpn.
+
 The tests have been alphabetically named so when running as a suite they will execute in the correct order. Logging the user out after each test ensures the tests do not fall over each other.
 
 The tests can be run several ways and as a suite or individually.
